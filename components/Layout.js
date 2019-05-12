@@ -8,7 +8,9 @@ export default ({children, settings = {}}) => (
 	<div className="app-container">
 		<Head title="Hello Next" description="Hello next description" />
 		<Header />
-		{children}
+		<div className="app-content">
+			{children}
+		</div>
 		<Footer />
 	</div>
 );

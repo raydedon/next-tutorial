@@ -14,11 +14,11 @@ const RecipeCard = ({
 	favourite = false,
 }) => (
 	<div className="card">
-		<Link href={`/recipe/${id}`}>
+		<Link href={`/recipes/${id}`}>
 			<img src={thumb} className="card-img-top" alt={name} />
 		</Link>
 		<div className="card-body">
-			<Link href={`/recipe/${id}`}>
+			<Link href={`/recipes/${id}`}>
 				<h5 className="card-title">{name}</h5>
 			</Link>
 			<p className="card-text">{headline}</p>

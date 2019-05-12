@@ -4,8 +4,7 @@ import Favourite from '../favourite/Favourite';
 
 class RecipePage extends Component {
 	componentDidMount() {
-		let {selectRecipe, match} = this.props;
-		selectRecipe(match.params.id);
+		console.info('in componentDidMount inside RecipePage');
 	}
 
 	render() {
@@ -22,7 +21,7 @@ class RecipePage extends Component {
 			rating = '',
 			image,
 			ingredients = [],
-		} = this.props.selectedRecipe;
+		} = this.props;
 
 		return (
 			<div className="recipe-detail">
