@@ -1,0 +1,118 @@
+.recipe-detail {
+	width: 100%;
+
+	.recipe-image {
+		position: relative;
+		padding-bottom: 500px;
+		overflow: hidden;
+
+		.reciepe-detail-img-top {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+		}
+	}
+	@media (max-width: 1199.98px) {
+		.recipe-image {
+			padding-bottom: 50vh;
+		}
+	}
+
+	@media (max-width: 767.98px) {
+		.recipe-image {
+			padding-bottom: 25vh;
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		.recipe-image {
+			padding-bottom: 20vh;
+		}
+	}
+
+	@media (max-width: 300px) {
+		.recipe-image {
+			padding-bottom: 10vh;
+		}
+	}
+
+	.recipe-detail-body {
+		position: relative;
+		justify-content: center;
+		-webkit-box-pack: center;
+		padding: 0 0 20px 0;
+
+		.recipe-detail-wrapper {
+			position: relative;
+			margin-top: -60px;
+			background-color: #ffffff;
+			border: 1px solid rgba(0,0,0,.125);
+			border-radius: .25rem;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 10px;
+			padding: 0 15px 15px;
+
+			.recipe-detail-more {
+				width: 100%;
+				display: grid;
+				grid-gap: 10px;
+				.label {
+					font-weight: bold;
+				}
+
+			}
+			.ingredients-list {
+				display: flex;
+				flex-direction: column;
+
+				.label {
+					font-weight: bold;
+					align-self: flex-start;
+				}
+
+				.list-container {
+					width: 100%;
+					display: grid;
+					grid-template-columns: 1fr;
+				}
+			}
+			@media (max-width: 575.98px) {
+				.recipe-detail-more {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			// Small devices (landscape phones, 576px and up)
+			@media (min-width: 576px) and (max-width: 767.98px) {
+				.recipe-detail-more {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			// Medium devices (tablets, 768px and up)
+			@media (min-width: 768px) and (max-width: 991.98px) {
+				.recipe-detail-more {
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+				}
+			}
+
+			// Large devices (desktops, 992px and up)
+			@media (min-width: 992px) and (max-width: 1199.98px) {
+				.recipe-detail-more {
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+				}
+			}
+
+			// Extra large devices (large desktops, 1200px and up)
+			@media (min-width: 1200px) {
+				.recipe-detail-more {
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+				}
+			}
+		}
+	}
+}
+
+

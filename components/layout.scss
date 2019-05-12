@@ -1,0 +1,13 @@
+@import "common";
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 15px;
+}

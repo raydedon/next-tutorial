@@ -1,18 +1,19 @@
+import React from 'react';
+import logo from './hellofresh-logo.svg';
+import './header.scss';
 import Link from 'next/link'
 
-const linkStyle = {
-  marginRight: 15
-}
+const Header = ({favourites = {}}) => (
+	<header className="App-header">
+		<Link href="/">
+			<a  className="link-to-home">
+				<img src={logo} className="App-logo" alt="logo" />
+			</a>
+		</Link>
+		<i className="fas fa-heart total-favourite">
+            &nbsp;&nbsp;{Object.keys(favourites).length}
+		</i>
+	</header>
+);
 
-export default function Header() {
-  return (
-    <div>
-      <Link href="/">
-        <a style={linkStyle}>Home</a>
-      </Link>
-      <Link href="/about">
-        <a style={linkStyle}>About</a>
-      </Link>
-    </div>
-  )
-}
+export default Header;

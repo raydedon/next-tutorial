@@ -1,0 +1,84 @@
+/*
+ This styles come by default by every `create-react-app`. We tweaked them a bit to match
+ the Hello Fresh colors. Feel free to remove or modify this file.
+ */
+
+.App-logo {
+    height: 50px;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}
+
+
+.App-header {
+	padding: 0 15px;
+	color: #91C11E;
+	font-size: calc(10px + 2vmin);
+	position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e7e7e7;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: start;
+    align-items: center;
+
+    .link-to-home {
+        display: flex;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .total-favourite {
+		color: red;
+		position: absolute;
+		right: 15px;
+	}
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .App-logo {
+        height: 80px;
+    }
+    .App-header {
+        justify-items: center;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1300px) {
+}
+
