@@ -11,7 +11,7 @@ export default class Index extends Component {
 	
 	static async getInitialProps() {
 		console.info('in index.js inside getInitialProps');
-		const port = process.env.PORT || 5000;
+		const port = process.env.PORT || location.port || 5000;
 		const res = await fetch(`http://localhost:${port}/api/recipes`);
 		const recipes = await res.json();
 		

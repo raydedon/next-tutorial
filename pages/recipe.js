@@ -12,7 +12,7 @@ export default class Recipe extends Component {
 	static async getInitialProps(context) {
 		const {id} = context.query;
 		console.info(`in recipe.js inside getInitialProps context: ${JSON.stringify(id, null, 4)}`);
-		const port = process.env.PORT || 5000;
+		const port = process.env.PORT || location.port || 5000;
 		const res = await fetch(`http://localhost:${port}/api/recipes/${id}`);
 		const recipe = await res.json();
 		
