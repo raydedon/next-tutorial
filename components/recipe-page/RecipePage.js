@@ -3,10 +3,6 @@ import './recipepage.scss';
 import Favourite from '../favourite/Favourite';
 
 class RecipePage extends Component {
-	componentDidMount() {
-		console.info('in componentDidMount inside RecipePage');
-	}
-
 	render() {
 		let {
 			name = '',

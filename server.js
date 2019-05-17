@@ -35,7 +35,7 @@ app
 		});
 		
 		server.get('/recipes/:id', (req, res) => {
-			const actualPage = '/recipe';
+			const actualPage = '/recipes';
 			const queryParams = { id: req.params.id };
 			app.render(req, res, actualPage, queryParams)
 		});
