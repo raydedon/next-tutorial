@@ -27,7 +27,7 @@ app
 			console.info(`in /api/recipes/:id id: ${req.params.id}`);
 			axios.get('https://s3-eu-west-1.amazonaws.com/frontend-dev-test/recipes.json')
 				.then(response => {
-					res.send(response.data.find(({id}) => id === req.params.id) || {});
+					res.send(Array.from(response.data).find(({id}) => id === req.params.id) || {});
 				})
 				.catch(error => {
 					console.log(error);

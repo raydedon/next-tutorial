@@ -11,10 +11,10 @@ export default class Index extends Component {
 	
 	static async getInitialProps() {
 		console.info('in index.js inside getInitialProps');
-		const res = await fetch(`https://s3-eu-west-1.amazonaws.com/frontend-dev-test/recipes.json`);
+		const res = await fetch(`http://localhost:5000/api/recipes`);
 		const recipes = await res.json();
 		
-		console.log(`Show data fetched. Count: ${recipes.length}`);
+		console.info(`in index.js inside getInitialProps, Show data fetched. Count: ${recipes.length}`);
 		
 		return {recipes}
 	}

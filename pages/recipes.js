@@ -10,13 +10,12 @@ export default class Recipe extends Component {
 	}
 	
 	static async getInitialProps(context) {
-		const {id} = context.query;
-		console.info(`in recipe.js inside getInitialProps context: ${JSON.stringify(id, null, 4)}`);
-		const res = await fetch(`https://s3-eu-west-1.amazonaws.com/frontend-dev-test/recipes.json`);
-		const recipes = await res.json();
-		const recipe = recipes.find(({id}) => id === context.query.id);
+		const {id: queryParamId} = context.query;
+		console.info(`in recipe.js inside getInitialProps context: ${JSON.stringify(queryParamId, null, 4)}`);
+		const res = await fetch(`http://localhost:5000/api/recipes/${queryParamId}`);
+		const recipe = await res.json();
 		
-		console.log(`Show data fetched. Count: ${Object.keys(recipe).length}`);
+		console.info(`in recipe.js inside getInitialProps, Show data fetched. Count: ${Object.keys(recipe).length}`);
 		
 		return {recipe}
 	}
