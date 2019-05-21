@@ -14,6 +14,7 @@
 	.card-img-top {
 		max-width: 100%;
 		height: auto;
+        cursor: pointer;
 	}
 
 	.card-body {
@@ -24,6 +25,10 @@
 		min-height: 130px;
 		box-sizing: border-box;
 	}
+}
+
+.card-title {
+	font-weight: bold;
 }
 
 // Extra small devices (portrait phones, less than 576px)

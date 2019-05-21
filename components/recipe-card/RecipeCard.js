@@ -4,22 +4,22 @@ import './recipecard.scss';
 import Favourite from '../favourite/Favourite';
 
 const RecipeCard = ({
-	id = '',
-	name = '',
-	thumb = '',
-	headline = '',
-	calories = '',
-	time = '',
-	rating = '',
-	favourite = false,
-}) => (
+	                    id = '',
+	                    name = '',
+	                    thumb = '',
+	                    headline = '',
+	                    calories = '',
+	                    time = '',
+	                    rating = '',
+	                    favourite = false
+                    }) => (
 	<div className="card">
 		<Link as={`/recipes/${id}`} href={`/recipes?id=${id}`}>
-			<img src={thumb} className="card-img-top" alt={name} />
+			<img src={thumb} className="card-img-top" alt={name}/>
 		</Link>
 		<div className="card-body">
 			<Link as={`/recipes/${id}`} href={`/recipes?id=${id}`}>
-				<h5 className="card-title">{name}</h5>
+				<a className="card-title">{name}</a>
 			</Link>
 			<p className="card-text">{headline}</p>
 			<div className="card-footer">

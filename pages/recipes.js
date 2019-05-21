@@ -1,31 +1,29 @@
 import React, {Component} from 'react';
 import Layout from '../components/Layout'
-import fetch from 'isomorphic-unfetch'
 import './recipes.scss';
 import RecipePage from "../components/recipe-page/RecipePage";
+import {recipeService} from "../services/recipe.service";
+import {fetchRecipesSuccess, selectRecipe} from "../actions/recipe-actions";
+import {connect} from "react-redux";
 
-export default class Recipe extends Component {
-	constructor(props) {
-		super(props);
-	}
-	
+class Recipes extends Component {
 	static async getInitialProps(context) {
-		const {id: queryParamId} = context.query;
-		console.info(`in recipe.js inside getInitialProps context: ${JSON.stringify(queryParamId, null, 4)}`);
-		const res = await fetch(`http://localhost:5000/api/recipes/${queryParamId}`);
-		const recipe = await res.json();
+		const {query: {id: queryParamId}, store, isServer} = context;
 		
-		console.info(`in recipe.js inside getInitialProps, Show data fetched. Count: ${Object.keys(recipe).length}`);
-		
-		return {recipe}
+		if(isServer) {
+			let recipes = await recipeService.fetchRecipes();
+			store.dispatch(fetchRecipesSuccess(recipes));
+		}
+		store.dispatch(selectRecipe(queryParamId));
 	}
 	
 	render() {
-		let {recipe} = this.props;
-		return(
+		return (
 			<Layout>
-				<RecipePage {...recipe} />
+				<RecipePage />
 			</Layout>
 		)
 	}
 }
+
+export default connect()(Recipes);

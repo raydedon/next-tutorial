@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './recipepage.scss';
 import Favourite from '../favourite/Favourite';
+import {connect} from 'react-redux';
 
 class RecipePage extends Component {
 	render() {
@@ -49,7 +50,12 @@ class RecipePage extends Component {
 	}
 }
 
-export default RecipePage;
+const mapStateToProps = (
+	{recipes: {recipes = {}}, user: {selectedRecipeId = ''}},
+	ownProps
+) => ({...recipes[selectedRecipeId], ...ownProps});
+
+export default connect(mapStateToProps)(RecipePage);
 
 const NameValePair = ({label, value}) => [
 	<span className="label" key={`${label}-label`}>

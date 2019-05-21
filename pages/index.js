@@ -1,30 +1,32 @@
 import React, {Component} from 'react';
 import Layout from '../components/Layout'
-import fetch from 'isomorphic-unfetch'
 import RecipeList from "../components/recipe-list/RecipeList";
 import './index.scss';
+import {connect} from "react-redux";
+import {fetchRecipesSuccess, selectRecipe} from '../actions/recipe-actions';
+import {recipeService} from '../services/recipe.service';
 
-export default class Index extends Component {
-	constructor(props) {
-		super(props);
-	}
-	
-	static async getInitialProps() {
-		console.info('in index.js inside getInitialProps');
-		const res = await fetch(`http://localhost:5000/api/recipes`);
-		const recipes = await res.json();
+class Index extends Component {
+	static async getInitialProps(context) {
+		let {store, isServer} = context;
 		
-		console.info(`in index.js inside getInitialProps, Show data fetched. Count: ${recipes.length}`);
-		
-		return {recipes}
+		if(isServer) {
+			let recipes = await recipeService.fetchRecipes();
+			store.dispatch(fetchRecipesSuccess(recipes));
+		}
+		store.dispatch(selectRecipe(''));
 	}
 	
 	render() {
 		let {recipes} = this.props;
-		return(
+		return (
 			<Layout>
-				<RecipeList list={recipes} />
+				<RecipeList list={Object.values(recipes)} />
 			</Layout>
 		)
 	}
 }
+
+const mapStateToProps = ({recipes: {recipes = {}}}) => ({recipes});
+
+export default connect(mapStateToProps)(Index);
