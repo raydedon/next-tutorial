@@ -24,13 +24,14 @@ export function recipes(state = {}, action) {
 		}
 		case TOGGLE_FAVOURITE: {
 			let {id} = payload;
+			let {recipes: recipesMap} = state;
+			let recipeObj = recipesMap[id];
+			let {favourite = false} = recipeObj;
+			recipeObj = {...recipeObj, favourite: !favourite};
+			recipesMap[id] = recipeObj;
 			return {
 				...state,
-				recipes: state.recipes.map(r => {
-					if(r.id !== id) return r;
-					let {favourite = false} = r;
-					return {...r, favourite: !favourite};
-				}),
+				recipes: {...recipesMap},
 			};
 		}
 		default:

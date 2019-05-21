@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './hellofresh-logo.svg';
 import './header.scss';
 import Link from 'next/link'
+import {connect} from 'react-redux';
 
 const Header = ({favourites = {}}) => (
 	<header className="App-header">
@@ -16,4 +17,6 @@ const Header = ({favourites = {}}) => (
 	</header>
 );
 
-export default Header;
+const mapStateToProps = ({user: {favourites}}) => ({favourites});
+
+export default connect(mapStateToProps)(Header);

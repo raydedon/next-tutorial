@@ -1,5 +1,7 @@
 import React from 'react';
 import './favourite.scss';
+import {toggleFavourite} from '../../actions/recipe-actions';
+import {connect} from 'react-redux';
 
 const Favourite = ({id = '', favourite = false, toggleFavourite}) => {
 	let setFavourite = event => {
@@ -22,4 +24,10 @@ const Favourite = ({id = '', favourite = false, toggleFavourite}) => {
 	);
 };
 
-export default Favourite;
+const mapStateToProps = (state, ownProps) => ({...ownProps});
+
+const mapDispatchToProps = dispatch => ({
+	toggleFavourite: id => dispatch(toggleFavourite(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favourite);

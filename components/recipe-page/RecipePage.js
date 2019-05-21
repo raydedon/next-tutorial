@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 class RecipePage extends Component {
 	render() {
 		let {
+			id = '',
 			name = '',
 			headline = '',
 			calories = '',
@@ -18,6 +19,7 @@ class RecipePage extends Component {
 			rating = '',
 			image,
 			ingredients = [],
+			favourite = false
 		} = this.props;
 
 		return (
@@ -42,7 +44,7 @@ class RecipePage extends Component {
 						<div className="card-footer">
 							<div className="rating">{rating}</div>
 						</div>
-						<Favourite />
+						<Favourite id={id} favourite={favourite} />
 					</div>
 				</div>
 			</div>
@@ -51,9 +53,9 @@ class RecipePage extends Component {
 }
 
 const mapStateToProps = (
-	{recipes: {recipes = {}}, user: {selectedRecipeId = ''}},
+	{recipes: {recipes = {}}, user: {selectedRecipeId = '', favourites = {}}},
 	ownProps
-) => ({...recipes[selectedRecipeId], ...ownProps});
+) => ({...recipes[selectedRecipeId], favourite: (selectedRecipeId in favourites), ...ownProps});
 
 export default connect(mapStateToProps)(RecipePage);
 
