@@ -1,6 +1,8 @@
 const express = require('express');
 const next = require('next');
 const axios = require('axios');
+const favicon = require('serve-favicon');
+const path = require('path');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -11,7 +13,7 @@ app
 	.prepare()
 	.then(() => {
 		const server = express();
-		
+		server.use(favicon(path.join(__dirname, "static", "favicon.ico")));
 		server.get('/api/recipes', (req, res) => {
 			console.info(`in /api/recipes`);
 			axios.get('https://s3-eu-west-1.amazonaws.com/frontend-dev-test/recipes.json')
