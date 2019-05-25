@@ -23,9 +23,9 @@ const RecipeCard = ({
 			</Link>
 			<p className="card-text">{headline}</p>
 			<div className="card-footer">
-				<div className="fela-fzx7h2">
-					<p className="fela-bnxrld">
-						<span className="fela-18emzam">{calories}</span>
+				<div>
+					<p>
+						<span>{calories}</span>
 						<span>{time}</span>
 					</p>
 				</div>

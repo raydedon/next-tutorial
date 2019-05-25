@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
 import Layout from '../components/Layout'
-import RecipeList from "../components/recipe-list/RecipeList";
 import './index.scss';
 import {connect} from "react-redux";
-import {fetchRecipesSuccess, selectRecipe} from '../actions/recipe-actions';
+import {fetchRecipesFailure, fetchRecipesSuccess, selectRecipe} from '../actions/recipe-actions';
 import {recipeService} from '../services/recipe.service';
+import GenericList from "../components/generic-list/GenericList";
 
 class Index extends Component {
 	static async getInitialProps(context) {
 		let {store, isServer} = context;
 		
 		if(isServer) {
-			let recipes = await recipeService.fetchRecipes();
-			store.dispatch(fetchRecipesSuccess(recipes));
+			try {
+				let recipes = await recipeService.fetchRecipes();
+				store.dispatch(fetchRecipesSuccess(recipes));
+			} catch (error) {
+				store.dispatch(fetchRecipesFailure(error));
+			}
 		}
 		store.dispatch(selectRecipe(''));
 	}
@@ -21,7 +25,7 @@ class Index extends Component {
 		let {recipes} = this.props;
 		return (
 			<Layout>
-				<RecipeList list={Object.values(recipes)} />
+				<GenericList list={Object.values(recipes)} className="grid recipe-list container" />
 			</Layout>
 		)
 	}

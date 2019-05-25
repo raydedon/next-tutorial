@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import './recipes.scss';
 import RecipePage from "../components/recipe-page/RecipePage";
 import {recipeService} from "../services/recipe.service";
-import {fetchRecipesSuccess, selectRecipe} from "../actions/recipe-actions";
+import {fetchRecipesFailure, fetchRecipesSuccess, selectRecipe} from "../actions/recipe-actions";
 import {connect} from "react-redux";
 
 class Recipes extends Component {
@@ -11,8 +11,12 @@ class Recipes extends Component {
 		const {query: {id: queryParamId}, store, isServer} = context;
 		
 		if(isServer) {
-			let recipes = await recipeService.fetchRecipes();
-			store.dispatch(fetchRecipesSuccess(recipes));
+			try {
+				let recipes = await recipeService.fetchRecipes();
+				store.dispatch(fetchRecipesSuccess(recipes));
+			} catch (error) {
+				store.dispatch(fetchRecipesFailure(error));
+			}
 		}
 		store.dispatch(selectRecipe(queryParamId));
 	}

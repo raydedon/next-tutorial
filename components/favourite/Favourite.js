@@ -3,7 +3,7 @@ import './favourite.scss';
 import {toggleFavourite} from '../../actions/recipe-actions';
 import {connect} from 'react-redux';
 
-const Favourite = ({id = '', favourite = false, toggleFavourite}) => {
+export const Favourite = ({id = '', favourite = false, toggleFavourite}) => {
 	let setFavourite = event => {
 		toggleFavourite(id);
 		event.preventDefault();

@@ -1,6 +1,7 @@
 import {SELECT_RECIPE, TOGGLE_FAVOURITE} from '../actions/action-types';
+import {INITIAL_USER_STATE} from "../store/Util";
 
-export function user(state = {}, action) {
+export function user(state = INITIAL_USER_STATE, action) {
 	let {type, payload} = action;
 	switch(type) {
 		case TOGGLE_FAVOURITE: {

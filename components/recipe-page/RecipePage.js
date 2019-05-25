@@ -3,7 +3,7 @@ import './recipepage.scss';
 import Favourite from '../favourite/Favourite';
 import {connect} from 'react-redux';
 
-class RecipePage extends Component {
+export class RecipePage extends Component {
 	render() {
 		let {
 			id = '',

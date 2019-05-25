@@ -4,8 +4,9 @@ import {
 	FETCH_RECIPE_SUCCESS,
 	TOGGLE_FAVOURITE,
 } from '../actions/action-types';
+import {INITIAL_RECIPE_STATE} from "../store/Util";
 
-export function recipes(state = {}, action) {
+export function recipes(state = INITIAL_RECIPE_STATE, action) {
 	let {type, payload} = action;
 	switch(type) {
 		case FETCH_RECIPE_REQUEST: {
