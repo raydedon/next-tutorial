@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import {expect} from 'chai';
-import {Recipes} from './recipes';
+import {Recipes} from '../pages/recipes';
 import Layout from "../components/Layout";
 import RecipePage from "../components/recipe-page/RecipePage";
 

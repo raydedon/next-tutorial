@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import {expect} from 'chai';
-import {Index} from './index';
+import {Index} from '../pages/index';
 import Layout from "../components/Layout";
 import GenericList from "../components/generic-list/GenericList";
 import RecipeCard from "../components/recipe-card/RecipeCard";
