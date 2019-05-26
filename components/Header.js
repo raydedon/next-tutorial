@@ -4,7 +4,7 @@ import './header.scss';
 import Link from 'next/link'
 import {connect} from 'react-redux';
 
-const Header = ({favourites = {}}) => (
+export const Header = ({favourites = {}}) => (
 	<header className="App-header">
 		<Link href="/">
 			<a  className="link-to-home">

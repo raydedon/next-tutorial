@@ -31,5 +31,5 @@ module.exports = {
 	
 	// Indicates whether each individual test should be reported during the run
 	verbose: false,
-	moduleNameMapper: { "\\.(css|less|scss)$": "<rootDir>/assets/css/__mocks__/styleMock.js" }
+	moduleNameMapper: { "\\.(css|less|scss|svg)$": "<rootDir>/assets/css/__mocks__/styleMock.js" }
 };

@@ -6,7 +6,7 @@ import {recipeService} from "../services/recipe.service";
 import {fetchRecipesFailure, fetchRecipesSuccess, selectRecipe} from "../actions/recipe-actions";
 import {connect} from "react-redux";
 
-class Recipes extends Component {
+export class Recipes extends Component {
 	static async getInitialProps(context) {
 		const {query: {id: queryParamId}, store, isServer} = context;
 		

@@ -6,7 +6,7 @@ import {fetchRecipesFailure, fetchRecipesSuccess, selectRecipe} from '../actions
 import {recipeService} from '../services/recipe.service';
 import GenericList from "../components/generic-list/GenericList";
 
-class Index extends Component {
+export class Index extends Component {
 	static async getInitialProps(context) {
 		let {store, isServer} = context;
 		
@@ -22,7 +22,7 @@ class Index extends Component {
 	}
 	
 	render() {
-		let {recipes} = this.props;
+		let {recipes = {}} = this.props;
 		return (
 			<Layout>
 				<GenericList list={Object.values(recipes)} className="grid recipe-list container" />
